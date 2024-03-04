@@ -7,6 +7,7 @@ bool Astate = LOW;
 bool Bstate = LOW;
 uint8_t cur_state = 0;
 uint8_t prev_state = 0;
+uint8_t sended_data = 0;
 
 uint8_t getstate()
 {
@@ -60,8 +61,9 @@ void loop()
             direction += 360.0 / resolution / 2.0;
         }
     }
+    sended_data = static_cast<uint8_t> (direction);
     Serial.print("DIRECTION : ");
-    Serial.println(direction);
+    Serial.println(sended_data);
     Serial.println("\0");
     prev_state = cur_state;
 }
